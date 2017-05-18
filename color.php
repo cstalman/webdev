@@ -111,10 +111,11 @@ echo $inputView->output();
 $model = new ColorConverter();
 $controller = new ColorController($model);
 
-// If one of the forms has been submitted, call the relevant controller action
+// If the form has been submitted, call the relevant controller action
 if (isset($_GET['action'])) {
     $controller->{$_GET['action']}($_POST);
     
+    // output as many views as defined in the controller
     for($i=0;$i<$controller->getCounter();$i++){  
       $View1 = new ColorOutputView($model);
       echo $View1->output();
